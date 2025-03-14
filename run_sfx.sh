@@ -77,7 +77,11 @@ build_and_run_client() {
     
     if [ $? -eq 0 ]; then
         echo "Running Java client..."
-        mvn javafx:run
+        # Alternative to mvn javafx:run - avoids timeout issues on macOS
+        java --module-path "$(mvn dependency:build-classpath -Dmdep.outputFile=/dev/stdout -q)" \
+             --add-modules javafx.controls,javafx.fxml \
+             -cp target/classes:target/sfx-client-1.0-SNAPSHOT.jar \
+             com.sfx.ui.SecureFileXchangeApp
     else
         echo "Failed to build Java client."
         return 1

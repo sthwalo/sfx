@@ -1,64 +1,90 @@
 /* Main application styles */
 .root {
     -fx-font-family: "System";
+    font-family: "System";
     -fx-font-size: 14px;
+    font-size: 14px;
     -fx-background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 
 /* Button styles */
 .button {
     -fx-background-color: #4285f4;
+    background-color: #4285f4;
     -fx-text-fill: white;
+    color: white;
     -fx-padding: 8px 16px;
+    padding: 8px 16px;
     -fx-cursor: hand;
+    cursor: pointer;
     -fx-background-radius: 4px;
+    border-radius: 4px;
 }
 
 .button:hover {
     -fx-background-color: #3275e4;
+    background-color: #3275e4;
 }
 
 .button:pressed {
     -fx-background-color: #2265d4;
+    background-color: #2265d4;
 }
 
 /* Table styles */
 .table-view {
     -fx-background-color: white;
+    background-color: white;
     -fx-border-color: #ddd;
+    border-color: #ddd;
     -fx-border-width: 1px;
+    border-width: 1px;
 }
 
 .table-view .column-header {
     -fx-background-color: #f0f0f0;
+    background-color: #f0f0f0;
     -fx-border-color: #ddd;
+    border-color: #ddd;
     -fx-border-width: 0 0 1px 0;
+    border-width: 0 0 1px 0;
     -fx-padding: 5px;
+    padding: 5px;
 }
 
 .table-row-cell:selected {
     -fx-background-color: #e0e9ff;
+    background-color: #e0e9ff;
     -fx-text-fill: black;
+    color: black;
 }
 
 /* Progress bar */
 .progress-bar .bar {
     -fx-background-color: #4285f4;
+    background-color: #4285f4;
 }
 
 /* Status label */
 #statusLabel {
     -fx-font-style: italic;
+    font-style: italic;
 }
 
 /* Form controls */
 .text-field {
     -fx-padding: 8px;
+    padding: 8px;
     -fx-border-color: #ddd;
+    border-color: #ddd;
     -fx-border-width: 1px;
+    border-width: 1px;
     -fx-border-radius: 4px;
+    border-radius: 4px;
 }
 
 .text-field:focused {
     -fx-border-color: #4285f4;
+    border-color: #4285f4;
 }
