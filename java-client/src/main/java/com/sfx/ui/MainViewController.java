@@ -82,6 +82,7 @@ public class MainViewController {
         }
         
         setStatus("Connecting to server...", true);
+        System.out.println("Attempting to connect to: " + serverUrl);
         
         // Initialize API client
         apiClient = new ApiClient(serverUrl);
@@ -89,7 +90,10 @@ public class MainViewController {
         executorService.submit(() -> {
             try {
                 // Check server health
+                System.out.println("Checking server health...");
                 boolean isHealthy = apiClient.healthCheck();
+                System.out.println("Server health check result: " + isHealthy);
+                
                 if (!isHealthy) {
                     Platform.runLater(() -> {
                         showAlert(Alert.AlertType.ERROR, "Connection Error", "Server is not healthy");
@@ -99,17 +103,23 @@ public class MainViewController {
                 }
                 
                 // Initialize key exchange
+                System.out.println("Initializing key exchange...");
                 keyExchange = new DHKeyExchange();
+                System.out.println("Key exchange initialized, calling server...");
                 KeyExchangeResponse response = apiClient.initiateKeyExchange();
+                System.out.println("Received key exchange response with session ID: " + response.getSessionId());
                 
                 // Compute shared secret and derive encryption key
+                System.out.println("Computing shared secret...");
                 byte[] sharedSecret = keyExchange.computeSharedSecret(response.getPublicKey());
                 encryptionKey = keyExchange.deriveEncryptionKey(sharedSecret);
                 System.out.println("Encryption key established: " + (encryptionKey != null ? "Yes (" + encryptionKey.length + " bytes)" : "No"));
                 
                 // Complete the key exchange
+                System.out.println("Completing key exchange with server...");
                 boolean success = apiClient.completeKeyExchange(
                         response.getSessionId(), keyExchange.getPublicKeyBase64());
+                System.out.println("Key exchange completion result: " + success);
                 
                 if (!success) {
                     Platform.runLater(() -> {
@@ -120,6 +130,7 @@ public class MainViewController {
                 }
                 
                 // Update UI on success
+                System.out.println("Connection successful, updating UI...");
                 Platform.runLater(() -> {
                     connectButton.setDisable(true);
                     serverUrlField.setDisable(true);
@@ -134,6 +145,7 @@ public class MainViewController {
                 
             } catch (Exception e) {
                 e.printStackTrace();
+                System.out.println("Connection error: " + e.getMessage());
                 Platform.runLater(() -> {
                     showAlert(Alert.AlertType.ERROR, "Connection Error", "Failed to connect: " + e.getMessage());
                     setStatus("Connection failed", false);
