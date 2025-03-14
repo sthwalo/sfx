@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.sfx.ui.MainViewController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Server URL:" />
+                <TextField fx:id="serverUrlField" promptText="http://localhost:8000" HBox.hgrow="ALWAYS" />
+                <Label text="User ID:" />
+                <TextField fx:id="userIdField" promptText="user-id" />
+                <Button fx:id="connectButton" text="Connect" onAction="#handleConnect" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="uploadButton" text="Upload File" onAction="#handleUpload" />
+                <Button fx:id="downloadButton" text="Download Selected" onAction="#handleDownload" />
+                <Button fx:id="refreshButton" text="Refresh Files" onAction="#handleRefresh" />
+                <Region HBox.hgrow="ALWAYS" />
+                <ProgressBar fx:id="progressBar" progress="-1" visible="false" />
+                <Label fx:id="statusLabel" text="Not connected" />
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="fileTable">
+            <columns>
+                <TableColumn fx:id="filenameColumn" text="Filename" prefWidth="300" />
+                <TableColumn fx:id="sizeColumn" text="Size" prefWidth="100" />
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="150" />
+            </columns>
+            <placeholder>
+                <Label text="No files available" />
+            </placeholder>
+        </TableView>
+    </center>
+</BorderPane>

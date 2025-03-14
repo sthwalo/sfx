@@ -1,0 +1,11 @@
+com/sfx/ui/SecureFileXchangeApp.class
+com/sfx/ui/MainViewController.class
+com/sfx/api/KeyExchangeResponse.class
+com/sfx/api/ApiClient$1.class
+com/sfx/crypto/AESEncryption.class
+com/sfx/ui/MainViewController$FileViewModel.class
+com/sfx/api/ApiClient.class
+com/sfx/api/FileUploadResponse.class
+com/sfx/api/FileListResponse$FileInfo.class
+com/sfx/api/FileListResponse.class
+com/sfx/crypto/DHKeyExchange.class
