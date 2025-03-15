@@ -28,6 +28,8 @@ jobs:
       run: |
         cd python-server
         pip install -r requirements.txt
+        # Explicitly install uvicorn to ensure it's available
+        pip install uvicorn
         # Start server with redirection of output to a log file for debugging
         nohup python run.py > server.log 2>&1 &
         echo $! > server.pid  # Save PID for potential troubleshooting
