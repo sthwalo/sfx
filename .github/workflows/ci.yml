@@ -1,5 +1,6 @@
 name: CI
 
+# Updated workflow with improved server health checks
 on:
   push:
     branches: [ main ]
