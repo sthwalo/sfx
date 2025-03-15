@@ -7,11 +7,13 @@
         "databind",
         "Dexec",
         "Diffie",
+        "dotenv",
         "Dskip",
         "fastapi",
         "fasterxml",
         "hgrow",
         "HKDF",
+        "httptools",
         "javac",
         "javafx",
         "nohup",
@@ -21,12 +23,14 @@
         "PKCS",
         "pydantic",
         "pytest",
+        "pyyaml",
         "sessionmaker",
         "sqlalchemy",
         "sthwalonyoni",
         "urandom",
         "uvicorn",
         "venv",
+        "watchfiles",
         "Xchange"
     ]
 }
